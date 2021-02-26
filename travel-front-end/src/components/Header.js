@@ -3,7 +3,7 @@ import React from "react";
 function Header() {
 
     return(
-       <div class="topnav">
+       <div>
         <h1>Travel Safe</h1>
         <h5>Hello, where are you travelling to?</h5>
        </div>
