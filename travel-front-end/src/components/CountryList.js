@@ -6,7 +6,7 @@ function CountryList({ countries, handleFavorites }) {
   const countryList = countries.map((country) => {
     return <CountryCard key={country.id} country={country} handleFavorites={handleFavorites}/>
   })
-  return(
+  return (
     <div>
       {countryList}
     </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function CountryCard({ country, handleFavorites}) {
-  const [inList, setInList] = useState([]);
+  const [inList, setInList] = useState(false);
 
   function handleToggleFavorite() {
     setInList(!inList);
@@ -18,6 +18,7 @@ function CountryCard({ country, handleFavorites}) {
       })
       .then(res => res.json())
       .then((newFavorite) => {
+        console.log('line 21', newFavorite)
         handleFavorites(newFavorite)
       })
     }
@@ -32,10 +33,10 @@ function CountryCard({ country, handleFavorites}) {
         <p>Currency: {country.currency}</p>
         <p>Plug Types: {country.plugs}</p>
         <br></br>
-        {inList? (
-          <button onClick={handleToggleFavorite}>In List</button>
-        ) : (
+        {!inList? (
           <button onClick={handleToggleFavorite}>Save</button>
+        ) : (
+          <button onClick={handleToggleFavorite}>In List</button>
         )}
     </li>
   )
