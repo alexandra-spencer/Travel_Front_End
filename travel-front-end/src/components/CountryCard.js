@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CountryCard({ country, handleFavorites}) {
+function CountryCard({ country, handleFavorites }) {
   const [inList, setInList] = useState(false);
 
   function handleToggleFavorite() {
@@ -18,14 +18,23 @@ function CountryCard({ country, handleFavorites}) {
       })
       .then(res => res.json())
       .then((newFavorite) => {
-        console.log('line 21', newFavorite)
         handleFavorites(newFavorite)
       })
     }
   }
 
+  // function handleToggleDeleteFavorite() {
+  //   setInList(inList);
+  //   if(inList) {
+  //     fetch(`http://localhost:3000/country_favorites/${favorite.id}`, {
+  //       method: 'DELETE'
+  //     })
+  //     handleDeleteFavorite(favorite)
+  //   }
+  // }
+
   return(
-    <li>
+    <li className="card">
         <p>{country.name}</p>
         <p>Continent: {country.continent}</p>
         <p>Vaccinations: {country.vaccinations}</p>
@@ -34,9 +43,9 @@ function CountryCard({ country, handleFavorites}) {
         <p>Plug Types: {country.plugs}</p>
         <br></br>
         {!inList? (
-          <button onClick={handleToggleFavorite}>Save</button>
+          <button onClick={handleToggleFavorite}>Add</button>
         ) : (
-          <button onClick={handleToggleFavorite}>In List</button>
+          <button onClick={handleToggleFavorite}>Remove</button>
         )}
     </li>
   )

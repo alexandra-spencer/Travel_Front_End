@@ -1,14 +1,27 @@
 import React from "react";
 import CountryCard from "./CountryCard";
+import CommentForm from "./CommentForm";
 
 
-function CountryList({ countries, handleFavorites }) {
-  const countryList = countries.map((country) => {
-    return <CountryCard key={country.id} country={country} handleFavorites={handleFavorites}/>
-  })
+function CountryList({ countries, handleFavorites, handleSubmitComment, onClickMore }) {
+  function getCountryList() {
+    if (countries) {
+      return countries.map((country) => {
+        return <CountryCard key={country.id} country={country} handleFavorites={handleFavorites}/>
+      })
+    }
+  }
   return (
     <div>
-      {countryList}
+      <div className="cards">
+          {getCountryList()}
+      </div>
+        <div>
+            <strong><p className="commentTitle">Review A Country</p></strong>
+            <br></br>
+            <CommentForm handleSubmitComment={handleSubmitComment} countryList={getCountryList()}/>
+        </div>
+        <br></br>
     </div>
   );
 };

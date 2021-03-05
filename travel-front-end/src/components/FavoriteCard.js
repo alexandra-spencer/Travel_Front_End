@@ -10,7 +10,7 @@ function FavoriteCard({favorite, handleDeleteFavorite}) {
   }
 
   return (
-    <div>
+    <div className="favoriteCard">
       <li>{favorite.country.name}</li>
       <button onClick={handleDeleteClick}>Remove</button>
     </div>

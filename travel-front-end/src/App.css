@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,161 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.header{
+  background-color: #282c34;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* dropdown */
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+
+}
+
+ .logo {
+  /* justify-content: left;
+  align-items: left;
+  text-align: left;
+  float: left; */
+  margin-top: -50px;
+  margin-bottom: -50px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.App {
+  text-align: center;
+}
+
+.cards {
+  list-style: none;
+  padding-left: 200px;
+  padding-right: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  margin: 1rem;
+  flex: 0 1 24%;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card button {
+  margin-top: 0.5rem;
+}
+
+
+@media (min-width: 768px) {
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: calc(33% - 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: calc(25% - 2rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    width: calc(20% - 2rem);
+  }
+}
+
+.favoriteTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.favoriteCard {
+  margin: 1rem;
+  flex: 0 1 24%;
+}
+
+.favoriteCards {
+  list-style: none;
+  padding-left: 200px;
+  padding-right: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.commentTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment {
+  margin: 1rem;
+  flex: 0 1 24%;
+}
+
+.commentList {
+  list-style: none;
+  padding-left: 200px;
+  padding-right: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.commentForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map {
+  width: 100%;
+  height: 600px;
+  border: 0px none;
 }
