@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import CountryList from "./CountryList";
+import MoreButton from "./MoreButton";
 import FavoritesList from "./FavoritesList";
 import CommentList from "./CommentList";
 import Dropdown1 from "./Dropdown1";
@@ -11,8 +12,9 @@ function CountryPage() {
   const [favorites, setFavorites] = useState([]);
   const [comments, setComments] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [option, setOption] = useState("All")
-  // const [countryIndex, setCountryIndex] = useState(0);
+  const [option, setOption] = useState("All");
+  const [countryIndex, setCountryIndex] = useState(0);
+  const [secondNumber, setSecondNumber] = useState(19);
 
 
   useEffect(() => {
@@ -74,53 +76,41 @@ function CountryPage() {
   }
 
 
-  // function handleVaccinations() {
-  //   const vaccinations = countries.filter((country) => {
-  //     return country.vaccinations !== "no vaccines required"
-  //   })
-  //   return vaccinations;
-  // }
-
-
-  // function handleSafeWater() {
-  //   const safeWater = countries.filter((country) => {
-  //     return country.water === "safe"
-  //   })
-  //   return safeWater;
-  // }
-
   function handleOptionChange() {
-    console.log(option)
     if (option === 'Safe Drinking Water') {
-      return countries.filter((country) => {
+      return displayedCountries.filter((country) => {
         return country.water === "safe"
       })
     } else if (option === "Vaccinations") {
-      return countries.filter((country) => {
+      return displayedCountries.filter((country) => {
         return country.vaccinations !== "no vaccines required"
       })
     } else {
-      return countries;
+      return displayedCountries;
     }
+  }
+
+  const countrySlice = countries.slice(countryIndex, secondNumber);
+
+  const displayedCountries = countrySlice.filter((country) => {
+    return country.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
+  function handleClickMore() {
+    setSecondNumber((secondNumber) => (secondNumber + 19) % countries.length);
   }
 
 
 
-
-  // function handleClickMore() {
-  //   setCountryIndex((countryIndex) => (countryIndex + 5) % countries.length);
-  // }
-
-  // const displayedCountries = countries.filter((country) => {
-  //   return country.name.toLowerCase().includes(searchTerm.toLowerCase());
-  // });
-
   return(
     <div>
       <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-      <Dropdown1 option={option} setOption={setOption} 
+      <br></br>
+      <Dropdown1 option={option} setOption={setOption}
       />
+      <br></br>
       <CountryList countries={handleOptionChange()} handleFavorites={handleFavorites} handleSubmitComment={handleSubmitComment} />
+      <MoreButton onClickMore={handleClickMore}/>
       <FavoritesList favorites={favorites} handleDeleteFavorite={handleDeleteFavorite}/>
       <CommentList comments={comments}  handleUpdateComment={handleUpdateComment} handleDeleteComment={handleDeleteComment} countries={countries}
       />

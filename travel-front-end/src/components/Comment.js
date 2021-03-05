@@ -4,6 +4,7 @@ function Comment({ comment, handleDeleteComment, handleUpdateComment}) {
 
   const [updatedText, setUpdatedText] = useState("");
   const [updatedRating, setUpdatedRating] = useState("");
+  console.log(comment.country.name)
 
   function handleUpdateClick(e) {
     e.preventDefault();

@@ -8,9 +8,8 @@ function CommentForm({ handleSubmitComment, countryList, setCountries }) {
 
 
   const countryListSelect = countryList.map((country) => {
-    return <option key={country.id} value={country.props.country.id}>
-      {country.props.country.name}
-    </option>
+    console.log(country)
+    return <option key={country.props.country.id} value={country.props.country.id}>{country.props.country.name} </option>
   })
 
 
@@ -23,7 +22,7 @@ function CommentForm({ handleSubmitComment, countryList, setCountries }) {
       },
       body: JSON.stringify({
         user_id: 1,
-        country_id: country,
+        country_id: country.id,
         text: text,
         rating: rating
       })
@@ -41,8 +40,6 @@ function CommentForm({ handleSubmitComment, countryList, setCountries }) {
   function handleChange(e) {
     setCountry(e.target.value)
   }
-
-
 
   return (
     <div className="commentForm">

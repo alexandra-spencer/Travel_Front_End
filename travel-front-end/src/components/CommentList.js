@@ -4,7 +4,6 @@ import Comment from "./Comment";
 function CommentList({ comments, handleUpdateComment, handleDeleteComment}) {
 
   const commentList = comments.map((comment) => {
-    console.log(comment.id)
     return <Comment key={comment.id} comment={comment} handleUpdateComment={handleUpdateComment} handleDeleteComment={handleDeleteComment} />
   })
   return (
