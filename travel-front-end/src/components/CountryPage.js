@@ -14,7 +14,7 @@ function CountryPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [option, setOption] = useState("All");
   const [countryIndex, setCountryIndex] = useState(0);
-  const [secondNumber, setSecondNumber] = useState(19);
+  const [secondNumber, setSecondNumber] = useState(20);
 
 
   useEffect(() => {
@@ -109,8 +109,8 @@ function CountryPage() {
       <Dropdown1 option={option} setOption={setOption}
       />
       <br></br>
-      <CountryList countries={handleOptionChange()} handleFavorites={handleFavorites} handleSubmitComment={handleSubmitComment} />
       <MoreButton onClickMore={handleClickMore}/>
+      <CountryList countries={handleOptionChange()} handleFavorites={handleFavorites} handleSubmitComment={handleSubmitComment} />
       <FavoritesList favorites={favorites} handleDeleteFavorite={handleDeleteFavorite}/>
       <CommentList comments={comments}  handleUpdateComment={handleUpdateComment} handleDeleteComment={handleDeleteComment} countries={countries}
       />

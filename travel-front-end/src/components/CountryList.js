@@ -17,7 +17,6 @@ function CountryList({ countries, handleFavorites, handleSubmitComment, onClickM
           {getCountryList()}
       </div>
         <div>
-            <strong><p className="commentTitle">Review A Country</p></strong>
             <br></br>
             <CommentForm handleSubmitComment={handleSubmitComment} countryList={getCountryList()}/>
         </div>

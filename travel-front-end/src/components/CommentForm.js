@@ -42,13 +42,25 @@ function CommentForm({ handleSubmitComment, countryList, setCountries }) {
   }
 
   return (
-    <div className="commentForm">
+    // <div className="commentForm" >
+    <div class="ui form searchbar">
+      <div class="field">
       <form onSubmit={handleSubmit}>
-        <label>
+
+      <div class="ui form dropdown">
+        <div class="field">
+          <label>Review A Country</label>
+          <select class="ui search dropdown" value={country.id} onChange={handleChange}>
+          {countryListSelect}
+          </select>
+        </div>
+      </div>
+      <br></br>
+        {/* <label>
           <select value={country.id} onChange={handleChange}>
           {countryListSelect}
           </select>
-        </label>
+        </label> */}
         <p>
         <input
           type="text"
@@ -67,8 +79,9 @@ function CommentForm({ handleSubmitComment, countryList, setCountries }) {
           onChange={(e) => setRating(parseInt(e.target.value))}
         />
         </p>
-      <button type="submit">Add Comment</button>
+      <button class="ui teal basic button" type="submit">Add Comment</button>
       </form>
+      </div>
     </div>
   );
 }

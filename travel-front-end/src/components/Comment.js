@@ -39,8 +39,8 @@ function Comment({ comment, handleDeleteComment, handleUpdateComment}) {
       <p>Country: {comment.country.name}</p>
       <p>Comment: {comment.text}</p>
       <p>Rating: {comment.rating}</p>
-      <button onClick={handleUpdateClick}>Edit</button>
-      <button onClick={handleDeleteClick}>Remove</button>
+      <button class="ui pink basic button" onClick={handleUpdateClick}>Edit</button>
+      <button class="ui orange basic button" onClick={handleDeleteClick}>Remove</button>
     </div>
   )
 }
