@@ -12,7 +12,7 @@ function FavoriteCard({favorite, handleDeleteFavorite}) {
   return (
     <div className="favoriteCard">
       <li>{favorite.country.name}</li>
-      <button class="ui grey basic button" onClick={handleDeleteClick}>Remove</button>
+      <button className="ui blue basic button" onClick={handleDeleteClick}>Remove</button>
     </div>
   )
 }

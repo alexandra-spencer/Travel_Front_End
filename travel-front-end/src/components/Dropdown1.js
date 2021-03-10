@@ -15,10 +15,10 @@ function Dropdown1({ option, setOption, handleSafeWater, handleVaccinations }) {
     //   </select>
     // </div>
 
-    <div class="ui form dropdown">
-      <div class="field">
+    <div className="ui form dropdown">
+      <div className="field">
         <label></label>
-        <select class="ui search dropdown" value={option} onChange={(e) => {setOption(e.target.value)}}>
+        <select className="ui search dropdown" value={option} onChange={(e) => {setOption(e.target.value)}}>
           <option value="All">All</option>
           <option value="Vaccinations">Vaccinations</option>
           <option value="Safe Drinking Water">Safe Drinking Water</option>

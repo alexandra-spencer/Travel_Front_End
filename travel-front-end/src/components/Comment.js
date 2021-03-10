@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 function Comment({ comment, handleDeleteComment, handleUpdateComment}) {
-
+  // const { user_id, country_id, text, rating } = comment;
   const [updatedText, setUpdatedText] = useState("");
   const [updatedRating, setUpdatedRating] = useState("");
-  console.log(comment.country.name)
+  const [form, setForm] = useState(false);
 
   function handleUpdateClick(e) {
     e.preventDefault();
@@ -19,11 +19,15 @@ function Comment({ comment, handleDeleteComment, handleUpdateComment}) {
         text: updatedText,
         rating: updatedRating
       })
+    })
       .then((r) => r.json())
       .then((updatedComment) => {
         handleUpdateComment(updatedComment)
       })
-    })
+  }
+
+  function showForm() {
+    setForm((form) => !form);
   }
 
   function handleDeleteClick() {
@@ -39,8 +43,35 @@ function Comment({ comment, handleDeleteComment, handleUpdateComment}) {
       <p>Country: {comment.country.name}</p>
       <p>Comment: {comment.text}</p>
       <p>Rating: {comment.rating}</p>
-      <button class="ui pink basic button" onClick={handleUpdateClick}>Edit</button>
-      <button class="ui orange basic button" onClick={handleDeleteClick}>Remove</button>
+      <button className="ui orange basic button" onClick={handleDeleteClick}>Remove</button>
+      <button className="ui pink basic button" onClick={showForm}>Edit</button>
+      <br></br>
+      <br></br>
+      { form ?
+          <form className= "ui form" onChange={handleUpdateClick}>
+          <input
+          type="text"
+          placeholder="New Comment"
+          value={updatedText}
+          onChange={(e) => setUpdatedText(e.target.value)}
+          />
+          <br></br>
+          <br></br>
+          <input
+          type="number"
+          placeholder="New Rating"
+          value={updatedRating}
+          onChange={(e) => setUpdatedRating(parseInt((e.target.value)))}
+          />
+          <br></br>
+          <br></br>
+          <button className="ui teal basic button" type="submit">Update</button>
+        </form>
+        : null
+      }
+      <br></br>
+      <br></br>
+
     </div>
   )
 }

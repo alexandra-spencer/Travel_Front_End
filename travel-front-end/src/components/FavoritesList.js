@@ -7,12 +7,12 @@ function FavoritesList({ favorites, handleDeleteFavorite }) {
         key={favorite.id}
         favorite={favorite}
         handleDeleteFavorite={handleDeleteFavorite}/>
-       
+
   })
   return (
     <div>
       <div className="favoriteTitle">
-        <strong><p>Favorite List</p></strong>
+        <h1><p>Favorite List</p></h1>
       </div>
       <div className="favoriteCards">
       {favoritesList}

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
 function CommentForm({ handleSubmitComment, countryList, setCountries }) {
-  // const [userId, setUserId] = ("1")
+
   const [text, setText] = useState("")
   const [rating, setRating] = useState("")
   const [country, setCountry] = useState("")
+  const [showForm, setShowForm] = useState(false)
 
 
   const countryListSelect = countryList.map((country) => {
-    console.log(country)
-    return <option key={country.props.country.id} value={country.props.country.id}>{country.props.country.name} </option>
+    return <option key={country.props.country.id} value={country.props.country.id}>{country.props.country.name}</option>
   })
 
 
@@ -22,7 +22,7 @@ function CommentForm({ handleSubmitComment, countryList, setCountries }) {
       },
       body: JSON.stringify({
         user_id: 1,
-        country_id: country.id,
+        country_id: country,
         text: text,
         rating: rating
       })
@@ -31,6 +31,7 @@ function CommentForm({ handleSubmitComment, countryList, setCountries }) {
     .then((newComment) => {
       handleSubmitComment(newComment)
     })
+
 
     setCountry("")
     setText("")
@@ -41,26 +42,27 @@ function CommentForm({ handleSubmitComment, countryList, setCountries }) {
     setCountry(e.target.value)
   }
 
-  return (
-    // <div className="commentForm" >
-    <div class="ui form searchbar">
-      <div class="field">
-      <form onSubmit={handleSubmit}>
+  function toggleForm() {
+    setShowForm((showForm) => !showForm)
+  }
 
-      <div class="ui form dropdown">
-        <div class="field">
-          <label>Review A Country</label>
-          <select class="ui search dropdown" value={country.id} onChange={handleChange}>
+  return (
+    <div className="review">
+    <button onClick={toggleForm} className="ui teal basic button">Add Review</button>
+    <br></br>
+    <br></br>
+    { showForm ?
+    <div className="ui form searchbar">
+      <div className="field">
+      <form onSubmit={handleSubmit}>
+      <div className="ui form dropdown">
+        <div className="field">
+          <select className="ui search dropdown" value={country.id} onChange={handleChange}>
           {countryListSelect}
           </select>
         </div>
       </div>
       <br></br>
-        {/* <label>
-          <select value={country.id} onChange={handleChange}>
-          {countryListSelect}
-          </select>
-        </label> */}
         <p>
         <input
           type="text"
@@ -79,9 +81,12 @@ function CommentForm({ handleSubmitComment, countryList, setCountries }) {
           onChange={(e) => setRating(parseInt(e.target.value))}
         />
         </p>
-      <button class="ui teal basic button" type="submit">Add Comment</button>
+      <button className="ui teal basic button" type="submit">Submit</button>
       </form>
       </div>
+    </div>
+    : null
+    }
     </div>
   );
 }

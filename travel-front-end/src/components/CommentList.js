@@ -9,7 +9,7 @@ function CommentList({ comments, handleUpdateComment, handleDeleteComment}) {
   return (
     <div>
       <div className="commentTitle">
-        <strong><p>Comments</p></strong>
+        <h2><p>Reviews</p></h2>
       </div>
       <div className="commentList">
         {commentList}

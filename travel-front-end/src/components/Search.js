@@ -12,8 +12,8 @@ function Search({ searchTerm, onSearchChange }) {
     //     onChange={(e) => onSearchChange(e.target.value)}
     //   />
     // </div>
-    <div class="ui form searchbar">
-      <div class="field">
+    <div className="ui form searchbar">
+      <div className="field">
         <label htmlFor="search"></label>
         <input
         type="text"

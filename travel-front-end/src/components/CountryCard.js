@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import { Container } from 'semantic-ui-react';
 
 function CountryCard({ country, handleFavorites }) {
   const [inList, setInList] = useState(false);
@@ -48,53 +49,53 @@ function CountryCard({ country, handleFavorites }) {
     //       <button onClick={handleToggleFavorite}>Remove</button>
     //     )}
     // </li>
-
-    <div class="ui card">
-    <div class="content">
-      <div class="country">{country.name}</div>
+    <container>
+    <div className="ui card">
+    <div className="content">
+      <div className="country">{country.name}</div>
     </div>
-    <div class="content">
-      <h4 class="ui sub">Continent: {country.continent}</h4>
-      <div class="ui small feed">
-        <div class="event">
-          <div class="content">
-            <div class="summary">
+    <div className="content">
+      <h4 className="ui sub">Continent: {country.continent}</h4>
+      <div className="ui small feed">
+        <div className="event">
+          <div className="content">
+            <div className="summary">
             <p>Vaccinations: {country.vaccinations}</p>
             </div>
           </div>
         </div>
-        <div class="event">
-          <div class="content">
-            <div class="summary">
+        <div className="event">
+          <div className="content">
+            <div className="summary">
             <p>Drinking Water: {country.water}</p>
             </div>
           </div>
         </div>
-        <div class="event">
-          <div class="content">
-            <div class="summary">
+        <div className="event">
+          <div className="content">
+            <div className="summary">
             <p>Currency: {country.currency}</p>
             </div>
           </div>
         </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
+          <div className="event">
+            <div className="content">
+              <div className="summary">
               <p>Plug Types: {country.plugs}</p>
               </div>
             </div>
           </div>
       </div>
     </div>
-    <div class="extra content">
+    <div className="extra content">
       {!inList? (
-          <button class="ui teal basic button" onClick={handleToggleFavorite}>Add</button>
+          <button className="ui teal basic button" onClick={handleToggleFavorite}>Add</button>
         ) : (
-          <button class="ui green basic button" onClick={handleToggleFavorite}>Remove</button>
+          <button className="ui green basic button" onClick={handleToggleFavorite}>Remove</button>
         )}
     </div>
     </div>
-
+    </container>
 
 
 

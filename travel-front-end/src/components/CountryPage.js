@@ -7,6 +7,7 @@ import Dropdown1 from "./Dropdown1";
 import Search from "./Search";
 
 
+
 function CountryPage() {
   const [countries, setCountries] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -110,8 +111,11 @@ function CountryPage() {
       />
       <br></br>
       <MoreButton onClickMore={handleClickMore}/>
+      <br></br>
       <CountryList countries={handleOptionChange()} handleFavorites={handleFavorites} handleSubmitComment={handleSubmitComment} />
+      <br></br>
       <FavoritesList favorites={favorites} handleDeleteFavorite={handleDeleteFavorite}/>
+      <br></br>
       <CommentList comments={comments}  handleUpdateComment={handleUpdateComment} handleDeleteComment={handleDeleteComment} countries={countries}
       />
     </div>
