@@ -8,6 +8,7 @@ import Search from "./Search";
 
 
 
+
 function CountryPage() {
   const [countries, setCountries] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -118,6 +119,7 @@ function CountryPage() {
       <br></br>
       <CommentList comments={comments}  handleUpdateComment={handleUpdateComment} handleDeleteComment={handleDeleteComment} countries={countries}
       />
+
     </div>
   )
 };

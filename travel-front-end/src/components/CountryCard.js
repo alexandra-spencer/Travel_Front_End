@@ -34,6 +34,9 @@ function CountryCard({ country, handleFavorites }) {
   //   }
   // }
 
+
+
+
   return(
     // <li className="card">
     //     <p>{country.name}</p>
@@ -82,6 +85,13 @@ function CountryCard({ country, handleFavorites }) {
             <div className="content">
               <div className="summary">
               <p>Plug Types: {country.plugs}</p>
+              </div>
+            </div>
+          </div>
+          <div className="event">
+            <div className="content">
+              <div className="summary">
+              <a href={country.url}>Additional Data</a>
               </div>
             </div>
           </div>

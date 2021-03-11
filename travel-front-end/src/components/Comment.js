@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-function Comment({ comment, handleDeleteComment, handleUpdateComment}) {
-  // const { user_id, country_id, text, rating } = comment;
-  const [updatedText, setUpdatedText] = useState("");
-  const [updatedRating, setUpdatedRating] = useState("");
+function Comment({ comment, handleDeleteComment, handleUpdateComment }) {
+  const { id, user_id, country_id, text, rating } = comment;
+  const [updatedText, setUpdatedText] = useState(text);
+  const [updatedRating, setUpdatedRating] = useState(rating);
   const [form, setForm] = useState(false);
 
   function handleUpdateClick(e) {
-    e.preventDefault();
+    e.preventDefault()
     fetch(`http://localhost:3000/country_comments/${comment.id}`, {
       method: "PATCH",
       headers: {
@@ -18,7 +18,7 @@ function Comment({ comment, handleDeleteComment, handleUpdateComment}) {
         country_id: comment.country_id,
         text: updatedText,
         rating: updatedRating
-      })
+      }),
     })
       .then((r) => r.json())
       .then((updatedComment) => {
@@ -48,30 +48,27 @@ function Comment({ comment, handleDeleteComment, handleUpdateComment}) {
       <br></br>
       <br></br>
       { form ?
-          <form className= "ui form" onChange={handleUpdateClick}>
+          <form className= "ui form" onSubmit={handleUpdateClick}>
           <input
-          type="text"
-          placeholder="New Comment"
-          value={updatedText}
-          onChange={(e) => setUpdatedText(e.target.value)}
+            type="text"
+            placeholder="New Comment"
+            value={updatedText}
+            onChange={(e) => setUpdatedText(e.target.value)}
           />
           <br></br>
           <br></br>
           <input
-          type="number"
-          placeholder="New Rating"
-          value={updatedRating}
-          onChange={(e) => setUpdatedRating(parseInt((e.target.value)))}
+            type="number"
+            placeholder="New Rating"
+            value={updatedRating}
+            onChange={(e) => setUpdatedRating(parseInt(e.target.value))}
           />
-          <br></br>
-          <br></br>
           <button className="ui teal basic button" type="submit">Update</button>
         </form>
         : null
       }
       <br></br>
       <br></br>
-
     </div>
   )
 }
